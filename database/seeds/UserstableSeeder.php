@@ -17,6 +17,13 @@ class UserstableSeeder extends Seeder
             'email' => 'admin@udemy-forum.dev',
             'admin' => 1,
             'avatar' => asset('avatars/avatar.png')
-        ]);  
+        ]);
+
+        App\User::create([
+            'name' => 'Emily Myers',
+            'password' => bcrypt('password'),
+            'email' => 'emily@myers.com',
+            'avatar' => asset('avatars/avatar.png')
+        ]); 
     }
 }

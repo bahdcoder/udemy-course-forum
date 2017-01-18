@@ -11,7 +11,10 @@ Route::get('/discuss', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/forum', [
+    'uses' => 'ForumsController@index',
+    'as' => 'forum'
+]);
 
 Route::get('{provider}/auth', [
     'uses' => 'SocialsController@auth',
@@ -39,5 +42,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('discussion/{slug}', [
         'uses' => 'DiscussionsController@show',
         'as' => 'discussion'
+    ]);
+
+    Route::post('/discussion/reply/{id}', [
+        'uses' => 'DiscussionsController@reply',
+        'as' => 'discussion.reply' 
     ]);
 });

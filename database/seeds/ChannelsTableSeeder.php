@@ -14,8 +14,8 @@ class ChannelsTableSeeder extends Seeder
     {
         $channel1 = ['title' => 'Laravel'];
         $channel2 = ['title' => 'Vuejs'];
-        $channel3 = ['title' => 'CSS3'];
-        $channel4 = ['title' => 'Javascript'];
+        $channel3 = ['title' => 'Javascript'];
+        $channel4 = ['title' => 'CSS3'];
         $channel5 = ['title' => 'PHP Testing'];
         $channel6 = ['title' => 'Spark'];
         $channel7 = ['title' => 'Lumen'];
