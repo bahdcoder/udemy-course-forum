@@ -20,6 +20,7 @@ class CreateDiscussionsTable extends Migration
             $table->integer('channel_id')->unsigned();
 
             $table->string('title');
+            $table->string('slug');
             $table->text('content');
             $table->timestamps();
         });
