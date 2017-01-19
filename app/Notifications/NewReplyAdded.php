@@ -11,14 +11,15 @@ class NewReplyAdded extends Notification
 {
     use Queueable;
 
+    public $discussion;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($d)
     {
-        //
+        $this->discussion = $d;
     }
 
     /**
@@ -41,8 +42,9 @@ class NewReplyAdded extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->greeting('Hello from Udemy learning laravel course.')
                     ->line('New reply left on a discussion you are watching.')
-                    ->action('View Discussion', 'https://laravel.com')
+                    ->action('View Discussion', route('discussion', ['slug' => $this->discussion->slug ]))
                     ->line('Thank you for using our application!');
     }
 

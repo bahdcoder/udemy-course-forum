@@ -6,6 +6,7 @@ use Auth;
 use Session;
 use App\User;
 use App\Reply;
+use Notification;
 use App\Discussion;
 use Illuminate\Http\Request;
 
@@ -62,7 +63,7 @@ class DiscussionsController extends Controller
         endforeach;
 
 
-        dd($watchers);
+        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
         
 
         Session::flash('success', 'Replied to discussion.');
