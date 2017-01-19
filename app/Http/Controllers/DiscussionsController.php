@@ -61,6 +61,9 @@ class DiscussionsController extends Controller
             'content' => request()->reply
         ]);
 
+        $reply->user->points += 25;
+        $reply->user->save();
+
         
         $watchers = array();
 

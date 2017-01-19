@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('avatar');
             $table->boolean('admin')->default(0);
+            $table->bigInteger('points')->default(50);
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->rememberToken();
