@@ -53,7 +53,9 @@
                     <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
                     <span>{{ $r->user->name }} <b>( {{ $r->user->points }} )</b></span>
                     @if(!$best_answer)
-                        <a href="{{ route('discussion.best.answer', ['id' => $r->id ]) }}" class="btn btn-xs btn-info pull-right">Mark as best answer</a>
+                        @if(Auth::id() == $d->user->id)
+                            <a href="{{ route('discussion.best.answer', ['id' => $r->id ]) }}" class="btn btn-xs btn-info pull-right">Mark as best answer</a>
+                        @endif
                     @endif
                 </div>
 
