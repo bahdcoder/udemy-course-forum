@@ -66,21 +66,16 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Udemy course forum
+                    <a href="/forum" style="text-decoration: none; color: black;">Udemy course forum</a>
                 </div>
 
                 <div class="links">
                     <a href="{{ route('social.auth', ['provider' => 'github']) }}">GitHub</a>
                     <a href="{{ route('social.auth', ['provider' => 'facebook']) }}">Facebook</a>
+                    <a href="/login">Email</a>
                 </div>
             </div>
         </div>
