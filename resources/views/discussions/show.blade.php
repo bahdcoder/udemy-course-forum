@@ -5,7 +5,11 @@
             <div class="panel-heading">
                 <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
                 <span>{{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }}</b></span>
-                <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right">view</a>
+                @if($d->is_being_watched_by_auth_user())
+                    <a href="{{ route('discussion.unwatch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right">unwatch</a>
+                @else
+                    <a href="{{ route('discussion.watch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right">watch</a>
+                @endif
             </div>
 
             <div class="panel-body">
@@ -18,9 +22,10 @@
                 </p>
             </div>
             <div class="panel-footer">
-                <p>
-                    {{ $d->replies->count() }} Replies
-                </p>
+                    <span>
+                        {{ $d->replies->count() }} Replies
+                    </span>
+                    <a href="{{ route('channel', ['slug' => $d->channel->slug ]) }}" class="pull-right btn btn-default btn-xs">{{ $d->channel->title }}</a>
             </div>
         </div>
 
